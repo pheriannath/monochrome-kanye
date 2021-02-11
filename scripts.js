@@ -35,7 +35,7 @@ async function getQuote() {
 // Gets a new quote and retypes only the quoted text
 async function getNewQuote() {
   console.log('getting a new quote');
-  await getQuote();
+  await getQuote().catch(handleError);
   typeIt(quoteEl);
 }
 
