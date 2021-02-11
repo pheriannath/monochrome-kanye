@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Monochrome Kanye Display</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="monitor" role="main" aria-labelledby="header">
+    <div class="glass"></div>
+    <div class="grid"></div>
+    <div class="screen">
+      <h1 id="header" role="header" data-type data-type-min="10" data-type-max="100">Kanye Says...</h1>
+      <p class="quote" data-type data-type-min="100" data-type-max="300"></p>
+    </div>
+  </div>
+
+  <form autocomplete="off">
+    <!-- Focus/Bias -->
+    <label id="blurLabel" for="blur">Focus</label>
+    <input aria-labelledby="blurLabel" role="slider" id="blur" class="dial" type="range" min="0" max="5" value="0"
+      aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" data-prop="blur" tabindex="0" />
+    <label id="glowLabel" for="glow">Glow</label>
+    <input aria-labelledby="glowLabel" role="slider" id="glow" class="dial" type="range" min="2" max="10" value="2"
+      aria-valuemin="2" aria-valuemax="10" aria-valuenow="2" data-prop="glow" tabindex="0" />
+    <label id="xBiasLabel" for="biasX">X Bias</label>
+    <input aria-labelledby="xBiasLabel" role="slider" id="biasX" class="dial" type="range" min="-5" max="5" value="0"
+      aria-valuemin="-5" aria-valuemax="5" aria-valuenow="0" data-prop="biasX" tabindex="0" />
+    <label id="yBiasLabel" for="biasY">Y Bias</label>
+    <input aria-labelledby="yBiasLabel" role="slider" id="biasY" class="dial" type="range" min="-5" max="5" value="0"
+      aria-valuemin="-5" aria-valuemax="5" aria-valuenow="0" data-prop="biasY" tabindex="0" />
+
+    <!-- Color Scheme -->
+    <ul role="radiogroup">
+      <li>
+        <label id="schemeLabel-1" for="green">Green</label>
+        <input role="radio" aria-labelledby="schemeLabel-1" id="green" type="radio" name="colorscheme" value="green"
+          tabindex="0" />
+      </li>
+      <li>
+        <label id="schemeLabel-2" for="topaz">Topaz</label>
+        <input role="radio" aria-labelledby="schemeLabel-2" id="topaz" type="radio" name="colorscheme" value="topaz"
+          checked tabindex="0" />
+      </li>
+      <li>
+        <label id="schemeLabel-3" for="teal">Teal</label>
+        <input role="radio" aria-labelledby="schemeLabel-3" id="teal" type="radio" name="colorscheme" value="teal"
+          tabindex="0" />
+      </li>
+    </ul>
+    <button class="get-new" role="button" type="button" aria-label="Get new quote">Get New Quote</button>
+  </form>
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>

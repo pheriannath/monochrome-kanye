@@ -1,0 +1,145 @@
+/* vars */
+
+:root {
+  --bgcolor: black;
+  --textcolor: rgba(241, 162, 58, 1); /* default to topaz */
+  --blur: 0px;
+  --glow: 2px; /* we always want some glow */
+  --biasX: 0px;
+  --biasY: 0px;
+  --fontSize: 1rem;
+}
+
+/* basics */
+
+::selection {
+  color: var(--bgcolor);
+  background: var(--textcolor);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  font-family: sans-serif;
+  background: var(--bgcolor);
+  color: var(--textcolor);
+  background-image: linear-gradient(#333, #000);
+}
+
+h1, h2, p {
+  text-shadow: var(--biasX) var(--biasY) var(--glow) var(--textcolor);
+  transition: all 0.2s;
+  filter: blur(var(--blur));
+}
+
+ul { 
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 0.5rem 0;
+}
+
+/* form styles */
+
+form {
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--textcolor);
+  border-radius: 1rem;
+}
+
+label, input {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+label {
+  height: 1rem;
+}
+
+input:focus {
+  outline: 1px solid var(--textcolor);
+}
+
+input[type="range"] {
+  background: transparent;
+  height: 1rem;
+}
+
+input[type="range"]::-webkit-slider-thumb,
+input[type="range"]::-moz-range-thumb {
+  background: var(--textcolor);
+  border-color: var(--textcolor);
+  width: 20px;
+  height: 1rem;
+}
+
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-moz-range-track {
+  background: var(--textcolor);
+}
+
+input[type="radio"] {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.get-new {
+  background: var(--textcolor);
+  color: var(--bgcolor);
+  padding: 1rem;
+  border: 0;
+  font-size: var(--fontSize);
+}
+
+/* display styles */
+
+.monitor {
+  margin: 4rem auto;
+  width: 680px;
+  height: 520px;
+  position: relative;
+  border: 20px solid #b29677;
+  border-radius: 1rem;
+  background: #b29677;
+}
+
+.screen,
+.glass,
+.grid {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.glass,
+.grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.screen {
+  overflow: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding: 2rem;
+  font-family:'Courier New', Courier, monospace;
+  background: var(--bgcolor);
+}
+
+.glass {
+  background-image: radial-gradient(farthest-corner at 75% 15%, rgba(255,255,255,0.3), transparent);;
+  box-shadow: 0 0 1rem var(--bgcolor) inset; 
+  z-index: 3;
+}
+
+.grid {
+  background: url('./assets/grid.png') repeat;
+  background-size: 2px 2px;
+  z-index: 2;
+}
